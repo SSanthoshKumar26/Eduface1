@@ -1,0 +1,227 @@
+/* PPTGenerator.css */
+
+/* Root Variables */
+:root {
+  --primary-color: #134786;
+  --secondary-color: #f5f5ff;
+  --accent-color: #ffbf47;
+  --text-color: #333333;
+  --bg-color: #ffffff;
+  --border-radius: 8px;
+  --transition: 0.3s ease;
+  --font-sans: 'Segoe UI', Tahoma, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* Container */
+.ppt-generator {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  margin-top: 2rem;
+  background: var(--bg-color);
+  font-family: var(--font-sans);
+  color: var(--text-color);
+}
+
+/* Header */
+.ppt-generator-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--secondary-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.ppt-generator-header .back-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: color var(--transition);
+}
+.ppt-generator-header .back-btn:hover {
+  color: var(--accent-color);
+}
+.ppt-generator-header h2 {
+  font-size: 1.75rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Main Content Grid */
+.generator-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Content Preview */
+.content-preview {
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.content-preview h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+.content-box {
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 1rem;
+  background: var(--bg-color);
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: var(--border-radius);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Customization Section */
+.customization-section {
+  display: flex;
+  flex-direction: column;
+}
+.customization-section h3 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+.advanced-options {
+  margin-top: 1.5rem;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.form-group label {
+  width: 6rem;
+  font-weight: 500;
+}
+.range-input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.range-input input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent-color);
+}
+.range-input span {
+  min-width: 3rem;
+  text-align: center;
+  font-weight: 500;
+}
+.form-group input[type="number"] {
+  width: 4rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: var(--border-radius);
+  transition: border var(--transition);
+}
+.form-group input[type="number"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Generation Section */
+.generation-section {
+  grid-column: span 2;
+  padding: 2rem;
+  background: var(--secondary-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.generation-section label {
+  font-weight: 500;
+}
+.generation-section input[type="text"] {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: var(--border-radius);
+  transition: border var(--transition);
+}
+.generation-section input[type="text"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+.generate-ppt-btn {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.generate-ppt-btn:hover:not(:disabled) {
+  background: var(--accent-color);
+  transform: translateY(-2px);
+}
+.generate-ppt-btn:disabled {
+  background: rgba(19,71,130,0.5);
+  cursor: not-allowed;
+}
+
+/* Progress Section */
+.progress-section {
+  width: 100%;
+  text-align: center;
+}
+.progress-bar {
+  width: 100%;
+  background: rgba(0,0,0,0.1);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color);
+  width: 0%;
+  transition: width var(--transition);
+}
+.progress-section p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+/* Message States */
+.success-message, .error-message {
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.success-message {
+  color: #28a745;
+}
+.error-message {
+  color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .generator-content {
+    grid-template-columns: 1fr;
+  }
+  .generation-section {
+    grid-column: span 1;
+  }
+}
